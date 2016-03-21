@@ -24,7 +24,7 @@ var metadata = {
 module.exports = helpers.defaults({
   // static data for index.html
   metadata: metadata,
-  // devtool: 'eval' // for faster builds use 'eval'
+  devtool: 'eval', // for faster builds use 'eval'
 
   // our angular app
   entry: { 'polyfills': './src/polyfills.ts', 'main': './src/main.ts' },
@@ -57,18 +57,17 @@ module.exports = helpers.defaults({
   },
 
   plugins: [
-    new webpack.optimize.OccurenceOrderPlugin(true),
-    new webpack.optimize.CommonsChunkPlugin({ name: 'polyfills', filename: 'polyfills.bundle.js', minChunks: Infinity }),
+    // new webpack.optimize.OccurenceOrderPlugin(true),
+    // new webpack.optimize.CommonsChunkPlugin({ name: 'polyfills', filename: 'polyfills.bundle.js', minChunks: Infinity }),
     // static assets
-    new CopyWebpackPlugin([ { from: 'src/assets', to: 'assets' } ]),
+    // new CopyWebpackPlugin([ { from: 'src/assets', to: 'assets' } ]),
     // generating html
     new HtmlWebpackPlugin({ template: 'src/index.html' }),
     // replace
     new webpack.DefinePlugin({
       'process.env': {
         'ENV': JSON.stringify(metadata.ENV),
-        'NODE_ENV': JSON.stringify(metadata.ENV),
-        'HMR': HMR
+        'NODE_ENV': JSON.stringify(metadata.ENV)
       }
     })
   ],
