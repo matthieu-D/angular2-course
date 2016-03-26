@@ -5,6 +5,7 @@ import * as ngCore from 'angular2/core';
 import * as browser from 'angular2/platform/browser';
 import {ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy} from 'angular2/router';
 import {HTTP_PROVIDERS} from 'angular2/http';
+import {NomineeOptions} from './app/oscar-ceremony/nominee/nominee-options'
 
 /*
  * App Environment Providers
@@ -34,6 +35,7 @@ export function main() {
     ...ENV_PROVIDERS,
     ...HTTP_PROVIDERS,
     ...ROUTER_PROVIDERS,
+    NomineeOptions,
     ngCore.provide(LocationStrategy, { useClass: HashLocationStrategy })
   ])
   .catch(err => console.error(err));
