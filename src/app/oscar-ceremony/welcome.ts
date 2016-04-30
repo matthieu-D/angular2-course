@@ -5,7 +5,7 @@ import {Pipe, PipeTransform} from 'angular2/core';
 })
 
 export class WelcomePipe implements PipeTransform {
-  transform(value: String, args: String[]) : String{
+  transform(value: String, args: any) : String{
     return 'Welcome'+args+ ' ' + value;
   }
 }
